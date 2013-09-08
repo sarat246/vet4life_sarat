@@ -64,8 +64,11 @@ audio:not([controls]) {
  *    user zoom.
  */
 
+$base-font: 'Lato', sans-serif;
+$heading-font: 'Lora', serif;
+
 html {
-    font-family: sans-serif; /* 1 */
+    font-family: $base-font; /* 1 */
     -webkit-text-size-adjust: 100%; /* 2 */
     -ms-text-size-adjust: 100%; /* 2 */
 }
@@ -80,7 +83,7 @@ button,
 input,
 select,
 textarea {
-    font-family: sans-serif;
+    font-family: $base-font;
 }
 
 /*
@@ -121,6 +124,7 @@ a:hover {
  * Addresses font sizes and margins set differently in IE6/7.
  * Addresses font sizes within `section` and `article` in FF4+, Chrome, S5.
  */
+
 
 h1 {
     font-size: 2em;

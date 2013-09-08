@@ -16,10 +16,13 @@ GENERAL STYLES
 *********************/
 
 body {
-	font-family: $serif;
-	font-size: pem(14);
-	line-height: pem(16);
+	font-family: $base-font;
+	font-size: pem(16);
 	color: #565656;
+    position: relative;
+    width: 100%;
+    min-width: pem(320);
+    border-top: solid pem(5) #656b6b;
 }
 
 /********************
@@ -105,9 +108,9 @@ H1, H2, H3, H4, H5 STYLES
 ******************************************************************/
 
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
-	font-family: $sans-serif;
+	font-family: $heading-font;
+	font-weight: 400;
 	text-rendering: optimizelegibility;
-	font-weight: 500;
 	/*
 	if you're going to use webfonts, be sure to check your weights
 	http://css-tricks.com/watch-your-font-weight/
@@ -120,7 +123,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
 }
 
 h1, .h1 {
-	font-size: 2.5em;
+	font-size: 2em;
 	line-height: 1.333em;
 }
 
@@ -146,13 +149,107 @@ h5, .h5 {
 	letter-spacing: 2px;
 }
 
+p{
+	line-height: pem(20);
+}
+
+strong{
+	font-weight: 700;
+}
+
+b{
+	font-weight: 700;
+}
+
 /*********************
 HEADER STYLES
 *********************/
+$logo-width:  pem(262);
+$logo-height: pem(88);
 
 .header {}
 
-	#logo {}
+	#logo {
+		display: block;
+		width: $logo-width;
+		height: $logo-height;
+		margin: 30px auto;
+		background: url('../images/logo_03.svg') top left no-repeat;
+		background-size: 100%;
+		a{
+			display: block;
+			width: $logo-width;
+			height: $logo-height;
+			text-indent: -9999px;
+		}
+	}
+
+.block {
+    position: relative;
+    margin: 0 auto;
+}
+
+.close-btn {
+    display: block;
+    width: pem(42);
+    height: pem(36);
+    padding: 0;
+    border: 0;
+    outline: none;
+    background: red;
+    background-size: pem(30) pem(30);
+    overflow: hidden;
+    white-space: nowrap;
+    text-indent: 100%;
+    opacity: 1;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+
+    .no-svg & {
+        background:green;
+    }
+
+    &:focus,
+    &:hover {
+        opacity: 1;
+    }
+}
+
+.nav-btn {
+    display: block;
+    width: pem(42);
+    height: pem(36);
+    padding: 0;
+    border: 0;
+    outline: none;
+    background: orange;
+    background-size: pem(30) pem(24);
+    overflow: hidden;
+    white-space: nowrap;
+    text-indent: 100%;
+    opacity: 0.7;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+
+    .no-svg & {
+        background-image: purple;
+    }
+
+    &:hover,
+    &:focus {
+        opacity: 1;
+    }
+}
+
+#outer-wrap {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+#inner-wrap {
+    position: relative;
+    width: 100%;
+}
+
 
 /*********************
 NAVIGATION STYLES
@@ -166,77 +263,99 @@ the navs on the site so our css is cleaner
 and more scalable.
 */
 
-.nav {
-	border: 1px solid #ccc;
-	border-bottom: 0;
+#nav{
+	z-index: 200;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    color: #fff;
 
-	li {
+    .close-btn {
+        display: none;
+    }
 
-		a {
+    .block-title {
+        @include visuallyhidden;
+    }
+
+    .block {
+        z-index: 2;
+        position: relative;
+        background: $background-color;
+    }
+	.navs {
+		border: 1px solid #ccc;
+		border-bottom: 0;
+		@include clearfix;
+        display: block;
+
+		li {
 			display: block;
-			text-decoration: none;
-			padding: 10px 10px;
-			background-color: #eee;
-			border-bottom: 1px solid #ccc;
+			a {
+	            display: block;
+	            color: #ccc;
+	            font-size: pem(14);
+	            line-height: pem(18, 14);
+	            outline: none;
+
+				/*
+				remember this is for mobile ONLY, so there's no need
+				to even declare hover styles here, you can do it in
+				the style.scss file where it's relevant. We want to
+				keep this file as small as possible!
+				*/
+				&:hover, &:focus {
+
+				}
+			}
+
+			&:first-child {}
+
+			&:last-child {}
 
 			/*
-			remember this is for mobile ONLY, so there's no need
-			to even declare hover styles here, you can do it in
-			the style.scss file where it's relevant. We want to
-			keep this file as small as possible!
+			so you really have to rethink your dropdowns for mobile.
+			you don't want to have it expand too much because the
+			screen is so small. How you manage your menu should
+			depend on the project. Here's some great info on it:
+			http://www.alistapart.com/articles/organizing-mobile/
 			*/
-			&:hover, &:focus {
+			ul.sub-menu,
+			ul.children {
 
-			}
-		}
+				li {
 
-		&:first-child {}
+					a {
+						padding-left: 30px;
 
-		&:last-child {}
+						&:hover,
+						&:focus {}
 
-		/*
-		so you really have to rethink your dropdowns for mobile.
-		you don't want to have it expand too much because the
-		screen is so small. How you manage your menu should
-		depend on the project. Here's some great info on it:
-		http://www.alistapart.com/articles/organizing-mobile/
-		*/
-		ul.sub-menu,
-		ul.children {
+						&:link {}
 
-			li {
+					}
 
-				a {
-					padding-left: 30px;
+					&:first-child {}
 
-					&:hover,
-					&:focus {}
-
-					&:link {}
+					&:last-child {}
 
 				}
 
-				&:first-child {}
-
-				&:last-child {}
-
 			}
 
-		}
+		} /* end .menu li */
 
-	} /* end .menu li */
+		/* highlight current page */
+		li.current-menu-item,
+		li.current_page_item,
+		li.current-page-ancestor {
 
-	/* highlight current page */
-	li.current-menu-item,
-	li.current_page_item,
-	li.current-page-ancestor {
+			a {}
 
-		a {}
+		}  /* end current highlighters */
 
-	}  /* end current highlighters */
-
-} /* end .nav */
-
+	} /* end .nav */
+}
 
 /*********************
 POSTS & CONTENT STYLES

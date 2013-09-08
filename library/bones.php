@@ -125,6 +125,8 @@ function bones_scripts_and_styles() {
   global $wp_styles; // call global $wp_styles variable to add conditional wrapper around ie stylesheet the WordPress way
   if (!is_admin()) {
 
+  	wp_register_script( 'jquery-g', 'http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js', null, '1.8.2', false);
+
     // modernizr (without media query polyfill)
     wp_register_script( 'bones-modernizr', get_stylesheet_directory_uri() . '/library/js/libs/modernizr.custom.min.js', array(), '2.5.3', false );
 
@@ -139,6 +141,9 @@ function bones_scripts_and_styles() {
 		wp_enqueue_script( 'comment-reply' );
     }
 
+     // modernizr (without media query polyfill)
+    wp_register_script( 'bxslider', get_stylesheet_directory_uri() . '/library/js/libs/jquery.bxslider.js', array( 'jquery' ), '3.0', true );
+
     //adding scripts file in the footer
     wp_register_script( 'bones-js', get_stylesheet_directory_uri() . '/library/js/scripts.js', array( 'jquery' ), '', true );
 
@@ -149,13 +154,17 @@ function bones_scripts_and_styles() {
 
     $wp_styles->add_data( 'bones-ie-only', 'conditional', 'lt IE 9' ); // add conditional wrapper around ie stylesheet
 
+    // Load Google Fonts API
+	wp_enqueue_style( 'google-fonts', 'http://fonts.googleapis.com/css?family=Lato:300,400,700,900,700italic|Arbutus+Slab|Lora:400,700,400italic' );
+
     /*
     I recommend using a plugin to call jQuery
     using the google cdn. That way it stays cached
     and your site will load faster.
     */
-    wp_enqueue_script( 'jquery' );
     wp_enqueue_script( 'bones-js' );
+    wp_enqueue_script( 'bxslider' );
+    wp_enqueue_script( 'jquery-g' );
 
   }
 }
@@ -246,7 +255,7 @@ function bones_footer_links() {
     	'container' => '',                              // remove nav container
     	'container_class' => 'footer-links clearfix',   // class of container (should you choose to use it)
     	'menu' => __( 'Footer Links', 'bonestheme' ),   // nav name
-    	'menu_class' => 'nav footer-nav clearfix',      // adding custom nav class
+    	'menu_class' => 'nav top-nav clearfix',      // adding custom nav class
     	'theme_location' => 'footer-links',             // where it's located in the theme
     	'before' => '',                                 // before the menu
         'after' => '',                                  // after the menu

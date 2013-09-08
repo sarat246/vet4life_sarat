@@ -49,7 +49,8 @@
 				<div id="inner-header" class="wrap clearfix">
 
 					<!-- to use a image just replace the bloginfo('name') with your img src and remove the surrounding <p> -->
-					<p id="logo" class="h1"><a href="<?php echo home_url(); ?>" rel="nofollow"><?php bloginfo('name'); ?></a></p>
+					<p id="logo"><a href="<?php echo home_url(); ?>" rel="nofollow"><?php bloginfo('name'); ?></a></p>
+					<a class="nav-btn" id="nav-open-btn" href="#nav">Book Navigation</a>
 
 					<!-- if you'd like to use the site description you can un-comment it below -->
 					<?php // bloginfo('description'); ?>
@@ -57,11 +58,9 @@
 				</div> <!-- end #inner-header -->
 			</header> <!-- end header -->
 
-			<div class="nav_section wrap clearfix">
-				<div class="block">
-					<nav role="navigation">
-						<?php bones_main_nav(); ?>
-						<a class="close-btn" id="nav-close-btn" href="#top">Return to Content</a>
-					</nav>
-				</div>
+			<div class="wrap clearfix">
+				<nav id="nav" role="navigation">
+					<?php bones_main_nav(); ?>
+					<a class="close-btn" id="nav-close-btn" href="#top">Return to Content</a>
+				</nav>
 			</div>
