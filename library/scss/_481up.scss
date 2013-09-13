@@ -1,6 +1,6 @@
 /******************************************************************
-Site Name: 
-Author: 
+Site Name:vet4life
+Author: Sarat Koneti
 
 Stylesheet: 481px and Up Stylesheet
 
@@ -15,57 +15,227 @@ upon your base.scss styles.
 
 ******************************************************************/
 
+.block {
+    position: relative;
+    margin: 0 auto;
+}
+
+.close-btn {
+    display: block;
+    width: pem(42);
+    height: pem(36);
+    padding: 0;
+    border: 0;
+    outline: none;
+    background: red;
+    background-size: pem(30) pem(30);
+    overflow: hidden;
+    white-space: nowrap;
+    text-indent: 100%;
+    opacity: 1;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+
+    .no-svg & {
+        background:green;
+    }
+
+    &:focus,
+    &:hover {
+        opacity: 1;
+    }
+}
+
+.nav-btn {
+    display: block;
+    width: pem(42);
+    height: pem(36);
+    padding: 0;
+    border: 0;
+    outline: none;
+    background: orange;
+    background-size: pem(30) pem(24);
+    overflow: hidden;
+    white-space: nowrap;
+    text-indent: 100%;
+    opacity: 0.7;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+
+    .no-svg & {
+        background-image: purple;
+    }
+
+    &:hover,
+    &:focus {
+        opacity: 1;
+    }
+}
 
 	
 /*********************
 NAVIGATION STYLES
 *********************/
 
-.nav {}
+#nav {
+    position: absolute;
+    top: 0;
+    padding-top: pem(84);
 
-	/* .menu is clearfixed inside mixins.scss */
-	.menu {
-		ul {
-			li {
-				a {
-					
-					/*
-					you can use hover styles here even though this size
-					has the possibility of being a mobile device.
-					*/
-					&:hover, &:focus {
-					
-					}
-				}
-				
-				&:first-child {}
-				&:last-child {}
-				
-				/*
-				plan your menus and drop-downs wisely.
-				*/
-				ul.sub-menu,
-				ul.children {
-					li {
-						a {
-							&:hover,
-							&:focus {}
-							&:link {}
-						}
-						&:first-child {}
-						&:last-child {}
-					}
-				}
-			} /* end .menu ul li */
-			
-			/* highlight current page */
-			li.current-menu-item, 
-			li.current_page_item,
-			li.current-page-ancestor {
-				a {}
-			}  /* end current highlighters */
-		} /* end .menu ul */
-	} /* end .menu */
+    // .no-js on step 2?
+
+    &:not(:target) {
+        z-index: 1;
+        height: 0;
+    }
+
+    &:target {
+        .close-btn {
+            display: block;
+        }
+    }
+
+    .close-btn {
+        position: absolute;
+        top: pem(-60);
+        left: pem(30);
+    }
+
+    .block {
+        position: relative;
+        padding: 0;
+    }
+
+    li {
+        position: relative;
+        border-top: 1px solid rgba(255,255,255, 0.1);
+
+        &:last-child {
+            border-bottom: 1px solid rgba(255,255,255, 0.1);
+        }
+
+        &.is-active:after {
+            z-index: 50;
+            display: block;
+            content: "";
+            position: absolute;
+            top: 50%;
+            right: pem(-0.5);
+            margin-top: pem(-10);
+            border-top: pem(10) transparent solid;
+            border-bottom: pem(10) transparent solid;
+            border-right: pem(10) #fff solid;
+        }
+
+        a {
+            padding: pem(12, 14) pem(30, 14);
+        }
+    }
+}
+
+
+  .js-ready #nav {
+    height: 100%;
+    width: 70%;
+    background: #333333;
+    -webkit-box-shadow: inset -1.5em 0 1.5em -0.75em rgba(0, 0, 0, 0.25);
+    -moz-box-shadow: inset -1.5em 0 1.5em -0.75em rgba(0, 0, 0, 0.25);
+    box-shadow: inset -1.5em 0 1.5em -0.75em rgba(0, 0, 0, 0.25);
+  }
+  .js-ready #nav .block {
+    background: transparent;
+  }
+  .js-ready #nav .close-btn {
+    display: block;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
+    opacity: 0.7;
+  }
+  .js-ready #nav .close-btn:focus, .js-ready #nav .close-btn:hover {
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+    opacity: 1;
+  }
+
+  .js-ready #nav {
+    left: -70%;
+  }
+  .js-ready #inner-wrap {
+    left: 0;
+  }
+
+  .js-nav #inner-wrap {
+    left: 70%;
+  }
+
+  .csstransforms3d.csstransitions.js-ready #nav {
+    left: 0;
+    -webkit-transform: translate3d(-100%, 0, 0);
+    -moz-transform: translate3d(-100%, 0, 0);
+    -ms-transform: translate3d(-100%, 0, 0);
+    -o-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    -o-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+  .csstransforms3d.csstransitions.js-ready #inner-wrap {
+    left: 0 !important;
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    -o-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    -webkit-transition: -webkit-transform 500ms ease;
+    -moz-transition: -moz-transform 500ms ease;
+    -o-transition: -o-transform 500ms ease;
+    transition: transform 500ms ease;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    -o-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+
+  .csstransforms3d.csstransitions.js-nav #inner-wrap {
+    -webkit-transform: translate3d(70%, 0, 0) scale3d(1, 1, 1);
+    -moz-transform: translate3d(70%, 0, 0) scale3d(1, 1, 1);
+    -ms-transform: translate3d(70%, 0, 0) scale3d(1, 1, 1);
+    -o-transform: translate3d(70%, 0, 0) scale3d(1, 1, 1);
+    transform: translate3d(70%, 0, 0) scale3d(1, 1, 1);
+  }
+
+  .csstransforms3d.csstransitions.js-ready #nav .block {
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
+    opacity: 0.7;
+    -webkit-transition: opacity 300ms 100ms, -webkit-transform 500ms ease;
+    -webkit-transition-delay: ease, 0s;
+    -moz-transition: opacity 300ms 100ms ease, -moz-transform 500ms ease;
+    -o-transition: opacity 300ms 100ms ease, -o-transform 500ms ease;
+    transition: opacity 300ms 100ms ease, transform 500ms ease;
+    -webkit-transform: translate3d(70%, 0, 0) scale3d(0.9, 0.9, 0.9);
+    -moz-transform: translate3d(70%, 0, 0) scale3d(0.9, 0.9, 0.9);
+    -ms-transform: translate3d(70%, 0, 0) scale3d(0.9, 0.9, 0.9);
+    -o-transform: translate3d(70%, 0, 0) scale3d(0.9, 0.9, 0.9);
+    transform: translate3d(70%, 0, 0) scale3d(0.9, 0.9, 0.9);
+    -webkit-transform-origin: 50% 0%;
+    -moz-transform-origin: 50% 0%;
+    -ms-transform-origin: 50% 0%;
+    -o-transform-origin: 50% 0%;
+    transform-origin: 50% 0%;
+  }
+
+  .csstransforms3d.csstransitions.js-nav #nav .block {
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    -o-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+
+
+
+
 
 /*********************
 POSTS & CONTENT STYLES

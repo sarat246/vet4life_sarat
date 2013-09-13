@@ -1,6 +1,6 @@
 /******************************************************************
-Site Name:
-Author:
+Site Name:vet4life
+Author: Sarat Koneti
 
 Stylesheet: Base Mobile Stylesheet
 
@@ -21,8 +21,22 @@ body {
 	color: #565656;
     position: relative;
     width: 100%;
-    min-width: pem(320);
+    /* min-width: pem(320); */
     border-top: solid pem(5) #656b6b;
+}
+
+.white_box{
+	background: #fff;
+	padding: pem(20);
+	margin-top: pem(30);
+	min-height: pem(360);
+	h1{
+		margin:0 0 pem(15) 0;
+	}
+}
+
+[role="main"]{
+	padding: 3em 0;
 }
 
 /********************
@@ -31,7 +45,139 @@ style a page via class
 ********************/
 
 .rtl {}                           /* for sites that are read right to left (i.e. hebrew) */
-.home {}                          /* home page */
+.home {
+	.slider_box{
+		display: block;
+		width: 100%;
+		.slider_list{
+			margin: 0;
+			display: block;
+			width: 100%;
+			li{
+				display: block;
+				width: 100%;
+				color: #fff;
+				text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
+				h1{
+					font-size: 2em;
+					letter-spacing: -1px;
+					margin-bottom: pem(5);
+					font-weight: 400;
+				}
+			}
+		}
+	}
+
+	img.team_pic{
+		display: block;
+		line-height: 0;
+		background: #fff;
+	}
+
+	.in_touch{
+		i{
+			color: $main-green;
+			margin-right: pem(5);
+		}
+		a.map_overlay{
+			display: block;
+			float: left;
+			width: 80px;
+			height: 80px;
+			background: url('../images/map_small.png') top center no-repeat;
+			background-size: 100%;
+			margin-right: pem(12);
+		}
+		h4{
+			margin-bottom: 0;
+		}
+		p.phone_mail{
+			line-height: pem(24);
+		}
+
+		p.timings{
+			margin-top: pem(5);
+		}
+	}
+
+	.social_logos{
+		ul.followus-icons{
+			display: block;
+			margin: 0;
+			li{
+				display: block;
+				float: left;
+				width: 50px;
+				height: 50px;
+				line-height: 49px;
+				text-align: center;
+				font-size: 2em;
+				margin-right: 0.5em;
+				background: $main-green;
+				color: $white;
+				a{
+					display: block;
+					position: relative;
+					text-indent: pem(-9999);
+					width: 50px;
+					height: 50px;
+					margin-top: -50px;
+					cursor: pointer;
+				}
+			}
+		}
+	}
+
+	.latest_news{
+		ul{
+			li{
+				display: block;
+				float: left;
+				margin-bottom: pem(18);
+				width: 100%;
+				a{
+					display: block;
+					text-decoration: none;
+					&:hover{
+						text-decoration: underline;
+					}
+				}
+				.date_block{
+					display: block;
+					float: left;
+					padding: pem(6) pem(10);
+					background: $main-green;
+					margin-right: 10px;
+					width: pem(45);
+					span{
+						display: block;
+						color: $white;
+						text-align: center;
+						margin: 0;
+						line-height: pem(16);
+						text-shadow:0 -1px 0 rgba(0,0,0,0.2);
+					}
+					span.date_num{
+						font-weight: 900;
+						font-size: pem(18);
+					}
+					span.month_let{
+						text-transform: uppercase;
+						font-size: pem(12);
+					}
+				}/* date block */
+			} /* li end */
+		}
+	}
+
+} /* home page */
+
+
+
+
+
+
+
 .blog {}                          /* blog template page */
 .archive {}                       /* archive page */
 .date {}                          /* date archive page */
@@ -72,7 +218,12 @@ LAYOUT & GRID STYLES
 
 .wrap {
 	width: 96%;
+	max-width: pem(1020);
 	margin: 0 auto;
+}
+
+#main{
+	background: #e6e6e8;
 }
 
 /*********************
@@ -85,6 +236,10 @@ a, a:visited {
 	/* on hover */
 	&:hover, &:focus {
 		color: $link-hover;
+		-webkit-transition: all 0.3s ease-in-out;
+	  -moz-transition: all 0.3s ease-in-out;
+	  -o-transition: all 0.3s ease-in-out;
+	  transition: all 0.3s ease-in-out;
 	}
 
 	/* on click */
@@ -124,12 +279,13 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
 
 h1, .h1 {
 	font-size: 2em;
-	line-height: 1.333em;
+	line-height: 1.1em;
+	letter-spacing: -1px;
 }
 
 h2, .h2 {
 	font-size: 1.75em;
-	line-height: 1.4em;
+	line-height: 1.1em;
 	margin-bottom: 0.375em;
 }
 
@@ -139,7 +295,7 @@ h3, .h3 {
 
 h4, .h4 {
 	font-size: 1.1em;
-	font-weight: 700;
+	font-weight: 400;
 }
 
 h5, .h5 {
@@ -190,53 +346,11 @@ $logo-height: pem(88);
 }
 
 .close-btn {
-    display: block;
-    width: pem(42);
-    height: pem(36);
-    padding: 0;
-    border: 0;
-    outline: none;
-    background: red;
-    background-size: pem(30) pem(30);
-    overflow: hidden;
-    white-space: nowrap;
-    text-indent: 100%;
-    opacity: 1;
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
-
-    .no-svg & {
-        background:green;
-    }
-
-    &:focus,
-    &:hover {
-        opacity: 1;
-    }
+	display: none;
 }
 
 .nav-btn {
-    display: block;
-    width: pem(42);
-    height: pem(36);
-    padding: 0;
-    border: 0;
-    outline: none;
-    background: orange;
-    background-size: pem(30) pem(24);
-    overflow: hidden;
-    white-space: nowrap;
-    text-indent: 100%;
-    opacity: 0.7;
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
-
-    .no-svg & {
-        background-image: purple;
-    }
-
-    &:hover,
-    &:focus {
-        opacity: 1;
-    }
+	display: none;
 }
 
 #outer-wrap {
@@ -263,106 +377,14 @@ the navs on the site so our css is cleaner
 and more scalable.
 */
 
-#nav{
-	z-index: 200;
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-    color: #fff;
 
-    .close-btn {
-        display: none;
-    }
-
-    .block-title {
-        @include visuallyhidden;
-    }
-
-    .block {
-        z-index: 2;
-        position: relative;
-        background: $background-color;
-    }
-	.navs {
-		border: 1px solid #ccc;
-		border-bottom: 0;
-		@include clearfix;
-        display: block;
-
-		li {
-			display: block;
-			a {
-	            display: block;
-	            color: #ccc;
-	            font-size: pem(14);
-	            line-height: pem(18, 14);
-	            outline: none;
-
-				/*
-				remember this is for mobile ONLY, so there's no need
-				to even declare hover styles here, you can do it in
-				the style.scss file where it's relevant. We want to
-				keep this file as small as possible!
-				*/
-				&:hover, &:focus {
-
-				}
-			}
-
-			&:first-child {}
-
-			&:last-child {}
-
-			/*
-			so you really have to rethink your dropdowns for mobile.
-			you don't want to have it expand too much because the
-			screen is so small. How you manage your menu should
-			depend on the project. Here's some great info on it:
-			http://www.alistapart.com/articles/organizing-mobile/
-			*/
-			ul.sub-menu,
-			ul.children {
-
-				li {
-
-					a {
-						padding-left: 30px;
-
-						&:hover,
-						&:focus {}
-
-						&:link {}
-
-					}
-
-					&:first-child {}
-
-					&:last-child {}
-
-				}
-
-			}
-
-		} /* end .menu li */
-
-		/* highlight current page */
-		li.current-menu-item,
-		li.current_page_item,
-		li.current-page-ancestor {
-
-			a {}
-
-		}  /* end current highlighters */
-
-	} /* end .nav */
-}
 
 /*********************
 POSTS & CONTENT STYLES
 *********************/
 
 #content {
-	margin-top: 2.2em;
+	background: #e6e6e8;
 }
 
 		.hentry {
@@ -384,7 +406,25 @@ POSTS & CONTENT STYLES
 
 		/* want to style individual post classes? Booya! */
 		.post-id {}         /* post by id (i.e. post-3) */
-		.post {}            /* general post style */
+		.post {
+			background: $white;
+			padding: 2em;
+			margin-top: 2em;
+			.article-header{
+				h1{
+					color: $main-green;
+					margin-bottom: 0;
+					a{
+						color: $main-green;
+					}
+				}
+				p.vcard{
+					font-style: italic;
+					font-size: pem(14);
+					margin-top: pem(10);
+				}
+			}
+		}            /* general post style */
 		.page {}            /* general article on a page style */
 		.attachment {}      /* general style on an attatchment */
 		.sticky {}          /* sticky post style */
@@ -852,7 +892,11 @@ SIDEBARS & ASIDES
 	.widgettitle {}
 
 	.widget {
-
+		border: solid 1px #ccc;
+		/* Box-Shadow */
+		-webkit-box-shadow:inset 0px 1px 2px 0px #fff;
+		-moz-box-shadow:inset 0px 1px 2px 0px #fff;
+		box-shadow:inset 0px 1px 2px 0px #fff;
 		ul {
 
 			li {
@@ -878,6 +922,13 @@ FOOTER STYLES
 
 .footer {
 	clear: both;
+	display: block;
+	#inner-footer{
+	    background: url('../images/footer_bg_03.png') right top no-repeat;
+		min-height: pem(500);
+		padding: pem(20) 0;
+		margin-top: pem(40);
+	}
 }
 
 	/*
@@ -900,5 +951,8 @@ FOOTER STYLES
 	} /* end .footer-links */
 
 
-	.copyright {}
+	.copyright {
+		text-align: center;
+		margin-top: 500px;
+	}
 

@@ -6,7 +6,7 @@
 							<?php bones_footer_links(); ?>
 					</nav>
 
-					<p class="source-org copyright">&copy; <?php echo date('Y'); ?> <?php bloginfo( 'name' ); ?>.</p>
+					<p class="source-org copyright">&copy; <?php echo date('Y'); ?> <?php bloginfo( 'name' ); ?>.co.uk  &nbsp; &nbsp;|&nbsp; &nbsp;   <a href="">Terms & Conditions</a>   &nbsp; &nbsp;| &nbsp; &nbsp;  <a href="">Cookie Policy</a></p>
 
 				</div> <!-- end #inner-footer -->
 

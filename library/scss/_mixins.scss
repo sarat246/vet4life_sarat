@@ -1,6 +1,6 @@
 /******************************************************************
-Site Name:
-Author:
+Site Name:vet4life
+Author: Sarat Koneti
 
 Stylesheet: Mixins & Constants Stylesheet
 
@@ -91,11 +91,13 @@ $alert-blue:        #d5edf8;
 $black:             #000;
 $white:             #fff;
 
-$bones-pink:        #f01d4f;
+$bones-pink:        #65656a;
 $bones-blue:        #1990db;
 
 $link-color:        $bones-pink;
 $link-hover:        darken($link-color, 9%);
+
+$main-green:        #97bf0d;
 
 /*
 Here's a great tutorial on how to
@@ -124,17 +126,78 @@ $serif:             "Georgia", Cambria, Times New Roman, Times, serif;
 	Be sure to remove the comment brackets.
 */
 
-/*	@font-face {
-    	font-family: 'Font Name';
-    	src: url('library/fonts/font-name.eot');
-    	src: url('library/fonts/font-name.eot?#iefix') format('embedded-opentype'),
-             url('library/fonts/font-name.woff') format('woff'),
-             url('library/fonts/font-name.ttf') format('truetype'),
-             url('library/fonts/font-name.svg#font-name') format('svg');
-    	font-weight: normal;
-    	font-style: normal;
+	@font-face {
+    	font-family: 'fontello';
+		src: url('../fonts/fontello.eot?70267822');
+		src: url('../fonts/fontello.eot?70267822#iefix') format('embedded-opentype'),
+		     url('../fonts/fontello.woff?70267822') format('woff'),
+		     url('../fonts/fontello.ttf?70267822') format('truetype'),
+		     url('../fonts/fontello.svg?70267822#fontello') format('svg');
+		font-weight: normal;
+		font-style: normal;
 	}
-*/
+
+
+	[class^="icon-"]:before, [class*=" icon-"]:before {
+	  font-family: "fontello";
+	  font-style: normal;
+	  font-weight: normal;
+	  speak: none;
+	 
+	  display: inline-block;
+	  text-decoration: inherit;
+	  width: 1em;
+	  margin-right: .2em;
+	  text-align: center;
+	  /* opacity: .8; */
+	 
+	  /* For safety - reset parent styles, that can break glyph codes*/
+	  font-variant: normal;
+	  text-transform: none;
+	     
+	  /* fix buttons height, for twitter bootstrap */
+	  line-height: 1em;
+	 
+	  /* Animation center compensation - margins should be symmetric */
+	  /* remove if not needed */
+	  margin-left: .2em;
+	 
+	  /* you can be more comfortable with increased icons size */
+	  /* font-size: 120%; */
+	 
+	  /* Uncomment for 3D effect */
+	  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+	}
+	 
+	.icon-mail:before { content: '\e81c'; } /* '' */
+	.icon-cancel-circle:before { content: '\e818'; } /* '' */
+	.icon-quote-left:before { content: '\e80a'; } /* '' */
+	.icon-quote:before { content: '\e815'; } /* '' */
+	.icon-quote-right:before { content: '\e809'; } /* '' */
+	.icon-plus-circle:before { content: '\e819'; } /* '' */
+	.icon-search:before { content: '\e80f'; } /* '' */
+	.icon-phone-circled:before { content: '\e814'; } /* '' */
+	.icon-phone:before { content: '\e812'; } /* '' */
+	.icon-location-1:before { content: '\e811'; } /* '' */
+	.icon-down-open:before { content: '\e816'; } /* '' */
+	.icon-menu:before { content: '\e81d'; } /* '' */
+	.icon-down-circle:before { content: '\e817'; } /* '' */
+	.icon-export-1:before { content: '\e808'; } /* '' */
+	.icon-left-open:before { content: '\e805'; } /* '' */
+	.icon-right-open:before { content: '\e806'; } /* '' */
+	.icon-left-open-big:before { content: '\e81a'; } /* '' */
+	.icon-right-open-big:before { content: '\e81b'; } /* '' */
+	.icon-right-open-1:before { content: '\e80c'; } /* '' */
+	.icon-left-open-1:before { content: '\e80b'; } /* '' */
+	.icon-location:before { content: '\e810'; } /* '' */
+	.icon-link:before { content: '\e80d'; } /* '' */
+	.icon-export:before { content: '\e807'; } /* '' */
+	.icon-twitter:before { content: '\e800'; } /* '' */
+	.icon-facebook:before { content: '\e801'; } /* '' */
+	.icon-linkedin:before { content: '\e802'; } /* '' */
+	.icon-youtube:before { content: '\e803'; } /* '' */
+	.icon-vimeo:before { content: '\e804'; } /* '' */
+
 
 /*
 use the best ampersand
@@ -239,48 +302,44 @@ BUTTONS
 *********************/
 
 .button, .button:visited {
-	font-family: $sans-serif;
-	border: 1px solid darken($link-color, 13%);
-	border-top-color: darken($link-color, 7%);
-	border-left-color: darken($link-color, 7%);
-	padding: 4px 12px;
-	color: $white;
+	font-family: $base-font;
+	padding: pem(15) pem(20);
 	display: inline-block;
-	font-size: 11px;
-	font-weight: bold;
+	font-size: pem(18);
+	font-weight: 700;
 	text-decoration: none;
-	text-shadow: 0 1px rgba(0,0,0, .75);
 	cursor: pointer;
+	margin-top: pem(15);
 	margin-bottom: 20px;
 	line-height: 21px;
-	border-radius: 4px;
-	@include css-gradient($link-color, darken($link-color, 5%));
+	background: #65656a;
+	color: #fff;
 
 
 	&:hover, &:focus {
-		color: $white;
-	  	border: 1px solid darken($link-color, 13%);
-	  	border-top-color: darken($link-color, 20%);
-	 	border-left-color: darken($link-color, 20%);
-		@include css-gradient(darken($link-color, 5%), darken($link-color, 10%));
+		background: $main-green;
+		color: #fff;
+		text-shadow: 0 -1px 0 rgba(0, 0 ,0, 0.3);
 	}
 
 	&:active {
-		@include css-gradient(darken($link-color, 5%), $link-color);
 	}
 }
 
-.blue-button, .blue-button:visited {
-	border-color: darken($bones-blue, 10%);
-	text-shadow: 0 1px 1px darken($bones-blue, 10%);
-	@include css-gradient( $bones-blue, darken($bones-blue, 5%) );
-	box-shadow: inset 0 0 3px lighten($bones-blue, 16%);
+.white-button, .white-button:visited {
+	color: $main-green;
+	background: #fff;
+	text-shadow: none;
+	/* Box-Shadow */
+	-webkit-box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.2);
+	box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.2);
 
 	&:hover, &:focus {
-		border-color: darken($bones-blue, 15%);
-		@include css-gradient( darken($bones-blue, 4%), darken($bones-blue, 10%) );
+		background: $main-green;
+		color: #fff;
+		text-shadow: 0 -1px 0 rgba(0, 0 ,0, 0.3);
 	}
 	&:active {
-		@include css-gradient( darken($bones-blue, 5%), $bones-blue );
 	}
 }

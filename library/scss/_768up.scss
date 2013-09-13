@@ -1,6 +1,6 @@
 /******************************************************************
-Site Name:
-Author:
+Site Name:vet4life
+Author: Sarat Koneti
 
 Stylesheet: Tablet & Small Desktop Stylesheet
 
@@ -19,12 +19,25 @@ GENERAL STYLES
 
 body {}
 
+.home{
+	.slider_box{
+		.slider_list{
+			li{
+				text-align: right;
+				h1{
+					margin-top: pem(25)
+				}
+			}
+		}
+	}
+}
+
 /*********************
 LAYOUT & GRID STYLES
 *********************/
 
 .wrap {
-	max-width: 1140px;
+	max-width: pem(1020);
 }
 
 /*********************
@@ -32,7 +45,6 @@ HEADER STYLES
 *********************/
 
 .header {}
-
 	#logo {}
 
 /*********************
@@ -40,28 +52,39 @@ NAVIGATION STYLES
 *********************/
 
 .nav {
-	background: #eee;
-	border: 0;
+	border: solid 1px #ccc;
+	border-bottom: solid 5px #ccc;
+	margin: 0;
 
 	li {
 		float: left;
 		position: relative;
+		padding:0 pem(15);
+		border-right: solid 1px #ccc;
 
 		a {
 			border-bottom: 0;
+			text-decoration: none;
+			line-height: pem(39);
+			font-size: pem(20);
+			font-weight: 700;
+			font-style: none;
+			text-transform: lowercase;
 
 			/*
 			you can use hover styles here even though this size
 			has the possibility of being a mobile device.
 			*/
 			&:hover, &:focus {
-				background-color: #dedede;
+				color: $main-green;
 
 			}
 		}
 
 		&:first-child {}
-		&:last-child {}
+		&:last-child {
+			border-right: none;
+		}
 
 		/*
 		plan your menus and drop-downs wisely.
@@ -78,7 +101,7 @@ NAVIGATION STYLES
 			li {
 
 				a {
-					padding-left: 10px;
+					padding-left: pem(10);
 					border-right: 0;
 					display: block;
 					width: 180px;
@@ -110,8 +133,11 @@ NAVIGATION STYLES
 			/* highlight sub-menu current page */
 			li.current-menu-item,
 			li.current_page_item,
+			li.current_page_parent,
 			li.current-page-ancestor {
-				a {}
+				a {
+					color: $main-green;
+				}
 			}
 		}
 
@@ -126,11 +152,19 @@ NAVIGATION STYLES
 	/* highlight current page */
 	li.current-menu-item,
 	li.current_page_item,
+	li.current_page_parent,
 	li.current-page-ancestor {
-		a {}
+		a {
+			color: $main-green;
+		}
 	}  /* end current highlighters */
 
 } /* end .nav */
+
+
+.slider_box, .slider_list>li{
+	height: 400px;
+}
 
 /*********************
 SIDEBARS & ASIDES
@@ -146,7 +180,7 @@ SIDEBARS & ASIDES
 	}
 
 	.widget {
-		padding: 0 10px;
+		padding: pem(20);
 		margin: 2.2em 0;
 
 		ul {
