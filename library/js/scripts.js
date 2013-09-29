@@ -264,3 +264,21 @@ jQuery(document).ready(function($) {
     }
 
 })(window, window.document);
+
+
+
+$(window).load(function(){
+  $('.slider_list').bxSlider({
+    
+/*mode: 'fade',
+auto: true,
+pager: true,
+pagerLocation:'top',
+controls: false*/
+  prevText: '<i class="icon-angle-circled-left"></i>',
+  nextText:'<i class="icon-angle-circled-right"></i>',
+  auto: false,
+  pager: true
+  
+  });
+    });

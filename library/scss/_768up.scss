@@ -52,15 +52,15 @@ NAVIGATION STYLES
 *********************/
 
 .nav {
-	border: solid 1px #ccc;
-	border-bottom: solid 5px #ccc;
+	border: solid 1px #444;
+	border-bottom: solid 5px #444;
 	margin: 0;
+	background: #656b6b;
 
 	li {
 		float: left;
 		position: relative;
-		padding:0 pem(15);
-		border-right: solid 1px #ccc;
+		border-right: solid 1px #444;
 
 		a {
 			border-bottom: 0;
@@ -70,6 +70,9 @@ NAVIGATION STYLES
 			font-weight: 700;
 			font-style: none;
 			text-transform: lowercase;
+			color: $white;
+			display: block;
+			padding: 0 pem(20);
 
 			/*
 			you can use hover styles here even though this size
@@ -77,6 +80,7 @@ NAVIGATION STYLES
 			*/
 			&:hover, &:focus {
 				color: $main-green;
+				background: #444;
 
 			}
 		}
@@ -92,23 +96,48 @@ NAVIGATION STYLES
 		ul.sub-menu,
 		ul.children {
 			margin-top: 0;
-			border: 1px solid #ccc;
+			border: none;
 			border-top: 0;
 			position: absolute;
 			display: none;
 			z-index: 8999;
+			background: $white;
+			background: rgba(255,255,255,0.99);
+			border-radius: 5px;
+			/* Box-Shadow */
+			-webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);
+			-moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);
+			box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);
+
+			&:before{
+				  content: "";
+				  position: absolute;
+				  width: 0;
+				  height: 0;
+				  border-width: 10px;
+				  border-style: solid;
+				  border-color:  transparent transparent #ffffff transparent;
+				  top: -18px;
+				  left: 30px;
+			}
 
 			li {
-
+				border-right: none;
 				a {
-					padding-left: pem(10);
+					padding-left: pem(15);
 					border-right: 0;
 					display: block;
-					width: 180px;
-					border-bottom: 1px solid #ccc;
+					width: 250px;
+					border-right: none;
+					border-bottom: 1px solid #f0f0f0;
+					font-size: pem(18);
+					color: $main-green;
 
 					&:hover,
-					&:focus {}
+					&:focus {
+						background: none;
+						color: #656b6b;
+					}
 
 					&:link {}
 				}
@@ -156,6 +185,7 @@ NAVIGATION STYLES
 	li.current-page-ancestor {
 		a {
 			color: $main-green;
+			background: #444;
 		}
 	}  /* end current highlighters */
 

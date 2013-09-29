@@ -16,7 +16,7 @@ Template Name: Front Page Template
 				                        <?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' );
 				                          $image = $image[0]; ?>
 				                    <?php endif; ?>
-				                    <li style="background:url('<?php echo $image; ?>') center center repeat;">
+				                    <li style="background:url('<?php echo $image; ?>') center center no-repeat;">
 				                        <div class="wrap clearfix">
 				                        	<?php the_content(); ?>
 				                        </div>
@@ -64,10 +64,10 @@ Template Name: Front Page Template
 						        <?php $the_query = new WP_Query( 'showposts=4' ); ?>
 						          <?php while ($the_query -> have_posts()) : $the_query -> the_post(); ?>
 						            <li>
-						            <div class="date_block">
+						            <!-- <div class="date_block">
 						            	<span class="date_num"><?php the_time('d'); ?></span>
 						            	<span class="month_let"><?php the_time('M'); ?></span>
-						            </div>
+						            </div> -->
 						              <a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
 						            </li>
 						        <?php endwhile;?>

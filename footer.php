@@ -1,7 +1,16 @@
 			<footer class="footer" role="contentinfo">
 
 				<div id="inner-footer" class="wrap clearfix">
-
+				<?php query_posts(array( 'post_type' => 'testimonials', 'posts_per_page' => -1 )); ?>
+			                <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+					<div class="testimonials">
+						<p><em><?php the_content(); ?></em></p>
+						<h1><?php the_title(); ?></h1>
+					</div>
+				<?php endwhile; else: ?>
+                    <p>Sorry, no posts matched your criteria.</p>
+	                <?php endif; ?>
+		        <?php wp_reset_query(); ?>
 					<nav role="navigation">
 							<?php bones_footer_links(); ?>
 					</nav>
