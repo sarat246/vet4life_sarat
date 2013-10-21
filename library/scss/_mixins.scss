@@ -91,13 +91,14 @@ $alert-blue:        #d5edf8;
 $black:             #000;
 $white:             #fff;
 
-$bones-pink:        #65656a;
+$bones-pink:        #262724;
 $bones-blue:        #1990db;
 
 $link-color:        $bones-pink;
 $link-hover:        darken($link-color, 9%);
 
 $main-green:        #97bf0d;
+$dark-green:        #6fa124;
 
 /*
 Here's a great tutorial on how to
@@ -303,7 +304,7 @@ BUTTONS
 
 .button, .button:visited {
 	font-family: $base-font;
-	padding: pem(15) pem(20);
+	padding: pem(8) pem(12);
 	display: inline-block;
 	font-size: pem(18);
 	font-weight: 700;
@@ -338,6 +339,24 @@ BUTTONS
 	&:hover, &:focus {
 		background: $main-green;
 		color: #fff;
+		text-shadow: 0 -1px 0 rgba(0, 0 ,0, 0.3);
+	}
+	&:active {
+	}
+}
+
+.green-button, .green-button:visited {
+	color: $white;
+	background: $main-green;
+	text-shadow: none;
+	/* Box-Shadow */
+	-webkit-box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.2);
+	box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.2);
+
+	&:hover, &:focus {
+		background: #65656a;
+		color: $white;
 		text-shadow: 0 -1px 0 rgba(0, 0 ,0, 0.3);
 	}
 	&:active {

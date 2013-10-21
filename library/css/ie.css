@@ -1,10 +1,10 @@
 /*
 Syntax error: Undefined variable: "$base-font".
-        on line 305 of C:/wamp/www/vet4life/wp-content/themes/vet4life_sarat/library/scss/_mixins.scss
+        on line 306 of C:/wamp/www/vet4life/wp-content/themes/vet4life_sarat/library/scss/_mixins.scss
         from line 22 of C:/wamp/www/vet4life/wp-content/themes/vet4life_sarat/library/scss/ie.scss
 
 Backtrace:
-C:/wamp/www/vet4life/wp-content/themes/vet4life_sarat/library/scss/_mixins.scss:305
+C:/wamp/www/vet4life/wp-content/themes/vet4life_sarat/library/scss/_mixins.scss:306
 C:/wamp/www/vet4life/wp-content/themes/vet4life_sarat/library/scss/ie.scss:22
 C:/Ruby200/lib/ruby/gems/2.0.0/gems/sass-3.2.10/lib/sass/script/variable.rb:49:in `_perform'
 C:/Ruby200/lib/ruby/gems/2.0.0/gems/sass-3.2.10/lib/sass/script/node.rb:40:in `perform'
@@ -65,4 +65,4 @@ C:/Ruby200/bin/compass:23:in `<main>'
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Undefined variable: \"$base-font\".\A         on line 305 of C:/wamp/www/vet4life/wp-content/themes/vet4life_sarat/library/scss/_mixins.scss\A         from line 22 of C:/wamp/www/vet4life/wp-content/themes/vet4life_sarat/library/scss/ie.scss"; }
+  content: "Syntax error: Undefined variable: \"$base-font\".\A         on line 306 of C:/wamp/www/vet4life/wp-content/themes/vet4life_sarat/library/scss/_mixins.scss\A         from line 22 of C:/wamp/www/vet4life/wp-content/themes/vet4life_sarat/library/scss/ie.scss"; }

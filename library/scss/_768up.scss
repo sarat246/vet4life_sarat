@@ -24,6 +24,7 @@ body {}
 		.slider_list{
 			li{
 				text-align: right;
+				height: pem(300);
 				h1{
 					margin-top: pem(25)
 				}
@@ -31,6 +32,7 @@ body {}
 		}
 	}
 }
+
 
 /*********************
 LAYOUT & GRID STYLES
@@ -65,14 +67,15 @@ NAVIGATION STYLES
 		a {
 			border-bottom: 0;
 			text-decoration: none;
-			line-height: pem(39);
-			font-size: pem(20);
-			font-weight: 700;
+			line-height: pem(45);
+			font-size: pem(15);
+			font-weight: 400;
 			font-style: none;
-			text-transform: lowercase;
+			/* text-transform: lowercase; */
 			color: $white;
 			display: block;
 			padding: 0 pem(20);
+			letter-spacing: 0;
 
 			/*
 			you can use hover styles here even though this size
@@ -130,7 +133,7 @@ NAVIGATION STYLES
 					width: 250px;
 					border-right: none;
 					border-bottom: 1px solid #f0f0f0;
-					font-size: pem(18);
+					font-size: pem(15);
 					color: $main-green;
 
 					&:hover,
@@ -164,8 +167,10 @@ NAVIGATION STYLES
 			li.current_page_item,
 			li.current_page_parent,
 			li.current-page-ancestor {
+				background: none;
 				a {
-					color: $main-green;
+					color: #656b6b;
+					background: none;
 				}
 			}
 		}
@@ -183,25 +188,21 @@ NAVIGATION STYLES
 	li.current_page_item,
 	li.current_page_parent,
 	li.current-page-ancestor {
+			background: #444;
 		a {
 			color: $main-green;
-			background: #444;
 		}
 	}  /* end current highlighters */
 
 } /* end .nav */
 
 
-.slider_box, .slider_list>li{
-	height: 400px;
-}
-
 /*********************
 SIDEBARS & ASIDES
 *********************/
 
 .sidebar {
-	margin-top: 2.2em;
+	margin-top: 2em;
 }
 
 	.widgettitle {
@@ -211,7 +212,7 @@ SIDEBARS & ASIDES
 
 	.widget {
 		padding: pem(20);
-		margin: 2.2em 0;
+		margin-bottom: 2em;
 
 		ul {
 			li {

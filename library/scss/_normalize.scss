@@ -64,8 +64,9 @@ audio:not([controls]) {
  *    user zoom.
  */
 
-$base-font: 'Lato', sans-serif;
-$heading-font: 'Arbutus Slab', serif;
+$base-font: 'Arimo', sans-serif;
+$heading-font: Georgia, "Times New Roman", Times, serif;
+$handrawn-font: 'Sniglet', cursive;
 
 html {
     font-family: $base-font; /* 1 */
@@ -127,7 +128,7 @@ a:hover {
 
 
 h1 {
-    font-size: 2em;
+    font-size: 1.8em;
     margin: 0.67em 0;
 }
 

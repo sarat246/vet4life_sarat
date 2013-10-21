@@ -144,6 +144,8 @@ function bones_scripts_and_styles() {
      // modernizr (without media query polyfill)
     wp_register_script( 'bxslider', get_stylesheet_directory_uri() . '/library/js/libs/jquery.bxSlider.min.js', array( 'jquery' ), '3.0', true );
 
+    wp_register_script( 'reveal', get_stylesheet_directory_uri() . '/library/js/libs/jquery.reveal.js', array( 'jquery' ), '', true );
+
     //adding scripts file in the footer
     wp_register_script( 'bones-js', get_stylesheet_directory_uri() . '/library/js/scripts.js', array( 'jquery' ), '', true );
 
@@ -155,7 +157,7 @@ function bones_scripts_and_styles() {
     $wp_styles->add_data( 'bones-ie-only', 'conditional', 'lt IE 9' ); // add conditional wrapper around ie stylesheet
 
     // Load Google Fonts API
-	wp_enqueue_style( 'google-fonts', 'http://fonts.googleapis.com/css?family=Lato:300,400,700,900,700italic|Arbutus+Slab' );
+	wp_enqueue_style( 'google-fonts', 'http://fonts.googleapis.com/css?family=Sniglet|Droid+Serif:400,700|Arimo:400,700,400italic' );
 
     /*
     I recommend using a plugin to call jQuery
@@ -164,6 +166,7 @@ function bones_scripts_and_styles() {
     */
     wp_enqueue_script( 'bones-js' );
     wp_enqueue_script( 'bxslider' );
+    wp_enqueue_script( 'reveal' );
     wp_enqueue_script( 'jquery-g' );
 
   }

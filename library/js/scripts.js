@@ -282,3 +282,6 @@ controls: false*/
   
   });
     });
+
+
+$('ul.sub-menu').parent().addClass('dropdown-arrow');
